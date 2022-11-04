@@ -1,0 +1,21 @@
+/* div is horizontal */
+div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.logo {
+    height: 100px;
+    flex: 1
+}
+
+app-navigation-menu {
+    flex: 10;
+}
+
+app-account-menu {
+    flex: 2;
+}

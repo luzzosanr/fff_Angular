@@ -1,0 +1,16 @@
+.main {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+app-shop-filter {
+    flex: 2;
+    height: 100%;
+}
+
+app-shop-render {
+    flex: 10;
+    height: 100%;
+}

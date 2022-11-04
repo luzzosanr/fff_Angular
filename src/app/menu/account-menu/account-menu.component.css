@@ -1,0 +1,17 @@
+/* line div 10px between the two elements */
+div {
+    align-content: right;
+    flex-direction: row;
+    display: flex;
+    margin-right: 10px;
+    float: right;
+}
+
+img {
+    height: 40px;
+    width: 40px;
+}
+
+a + a {
+    margin-left: 10px;
+}
