@@ -8,9 +8,6 @@ import { environment } from 'src/environments/environment';
 })
 export class ShopItemComponent {
   @Input() item: any;
-
-  full_link_image(link: string) {
-    return environment.API_URL_IMAGES + link;
-  }
+  environment = environment;
 
 }

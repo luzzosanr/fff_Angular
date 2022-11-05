@@ -1,0 +1,16 @@
+<div>
+    <h1>Shopping Cart</h1>
+    <div *ngIf="cartItems.length > 0">
+        <div *ngFor="let item of cartItems">
+            <img [src]="environment.full_link_image(item.image)" class="img-fluid" />
+            <h4>{{ item.name }}</h4>
+            <p>{{ item.description }}</p>
+            <h4>{{ item.price / 100 | currency }}</h4>
+            <h4>{{ item.quantity }}</h4>
+            <h4>{{ item.quantity * item.price / 100 | currency }}</h4>
+        </div>
+    </div>
+    <div *ngIf="cartItems.length === 0">
+        <h3>Your cart is empty</h3>
+    </div>
+</div>

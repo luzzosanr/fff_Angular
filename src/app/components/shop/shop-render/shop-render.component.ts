@@ -18,7 +18,6 @@ export class ShopRenderComponent implements OnInit {
   ngOnInit(): void {
     this.productsService.getProducts(this.filters).subscribe((data: any) => {
       this.products = data.products;
-      console.log(this.products);
     });
   }
 

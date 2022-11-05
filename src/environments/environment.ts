@@ -6,6 +6,9 @@ export const environment = {
   production: false,
   API_URL: 'http://localhost:8000/api/',
   API_URL_IMAGES: 'http://localhost:8000',
+  full_link_image(link: string) {
+    return environment.API_URL_IMAGES + link;
+  },
 };
 
 /*
