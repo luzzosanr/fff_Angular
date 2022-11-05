@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { RoutingService } from './services/routing.service';
 
 @Component({
   selector: 'app-root',
@@ -10,14 +10,11 @@ export class AppComponent {
   title: string = 'angular_app';
 
   constructor(
-    private router: Router
+    private routingService: RoutingService
   ) { }
 
-  shoppingwebsite() {
-    /**
-     * @return whether the user is on the shopping website.
-     */
-
-    return this.router.url.includes('shopping');
+  shoppingwebsite() : boolean {
+    return !this.routingService.isAdmin();
   }
+
 }

@@ -13,9 +13,10 @@ import { ShopFilterComponent } from './components/shop/shop-filter/shop-filter.c
 import { ShopItemComponent } from './components/shop/shop-item/shop-item.component';
 import { ShopRenderComponent } from './components/shop/shop-render/shop-render.component';
 
-import { LoginComponent } from './pages/shopping/login/login.component';
+import { LoginComponent } from './pages/login/login.component';
 import { AccountComponent } from './pages/shopping/account/account.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HttpClientXsrfModule } from '@angular/common/http';
+import { RegisterComponent } from './pages/register/register.component';
 
 @NgModule({
   declarations: [
@@ -30,11 +31,16 @@ import { HttpClientModule } from '@angular/common/http';
     ShopRenderComponent,
     LoginComponent,
     AccountComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    HttpClientXsrfModule.withOptions({
+      cookieName: 'XSRF-TOKEN',
+      headerName: 'X-CSRF-TOKEN'
+    }),
     FormsModule
   ],
   providers: [

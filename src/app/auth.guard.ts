@@ -22,10 +22,10 @@ export class AuthGuard implements CanActivate, CanLoad {
   ) : boolean
   {
     /**
-     * If the user is logged in, return true.
+     * If the user is logged in as a shopper, return true.
      * Otherwise, redirect to the login page.
      */
-    this.isLoggedIn();
+    this.isShopperLogged();
     if (this.loggedIn) return true;
     this.router.navigate(['/login']);
     return false;
@@ -37,7 +37,27 @@ export class AuthGuard implements CanActivate, CanLoad {
      */
     
     this.http.get(environment.API_URL + 'isloggedin', { withCredentials: true }).subscribe( (data:any) => {
-      this.loggedIn = data.status == "logged";
+      this.loggedIn = data.status != "not logged";
+    });
+  }
+
+  isShopperLogged() {
+    /**
+     * Check if the user is logged in.
+     */
+    
+    this.http.get(environment.API_URL + 'isloggedin', { withCredentials: true }).subscribe( (data:any) => {
+      this.loggedIn = data.status == "logged in as SHOPPER";
+    });
+  }
+
+  isBrandLogged() {
+    /**
+     * Check if the user is logged in.
+     */
+    
+    this.http.get(environment.API_URL + 'isloggedin', { withCredentials: true }).subscribe( (data:any) => {
+      this.loggedIn = data.status == "logged in as BRAND";
     });
   }
 

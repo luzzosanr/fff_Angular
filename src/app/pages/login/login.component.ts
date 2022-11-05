@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { AccountService } from 'src/app/services/account.service';
+import { RoutingService } from 'src/app/services/routing.service';
 
 @Component({
   selector: 'app-login',
@@ -9,7 +11,9 @@ import { AccountService } from 'src/app/services/account.service';
 export class LoginComponent {
   
   constructor(
-    private service: AccountService
+    private service: AccountService,
+    private routingService: RoutingService,
+    private router: Router
   ) { }
 
   onSubmit(data: any) {
@@ -17,9 +21,14 @@ export class LoginComponent {
      * Login the user.
      */
 
-    data.value['user_type'] = "SHOPPER";
+    data.value['user_type'] = this.routingService.isAdmin() ? 'BRAND' : 'SHOPPER';
+    console.log(data.value);
     
     this.service.login(data.value);
+  }
+
+  register() {
+    this.router.navigate(['/register']);
   }
 
 }
