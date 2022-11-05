@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { ProductsService } from 'src/app/services/products.service';
 
 @Component({
   selector: 'app-shop-render',
@@ -6,29 +8,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./shop-render.component.css']
 })
 export class ShopRenderComponent implements OnInit {
-  items: any[] = [];
+  @Input() filters: any[] = []
+  products: any [] = [];
 
-  constructor() {
-    this.items = [
-      {
-        name: 'Item 1',
-        price: 100,
-        image: 'http://localhost:8000/media/products/514BBy8H2fS._AC_UX385__nHXMJjJ.jpg'
-      },
-      {
-        name: 'Item 2',
-        price: 200,
-        image: 'http://localhost:8000/media/products/Dream-Merch-sweat-capuche-pour-hommes-et-femmes-pull-Harajuku-tracksuie-2021-pour-hommes-Streetwear-d_r6v1SyN.jpg'
-      },
-      {
-        name: 'Item 3',
-        price: 300,
-        image: 'http://localhost:8000/media/products/topg-merch-store.jpg'
-      }
-    ];
-  }
-
+  constructor(
+    private productsService: ProductsService,
+  ) {}
+  
   ngOnInit(): void {
+    this.productsService.getProducts(this.filters).subscribe((data: any) => {
+      this.products = data.products;
+      console.log(this.products);
+    });
   }
 
 }

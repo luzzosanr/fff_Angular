@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Router } from '@angular/router';
 
@@ -40,7 +40,7 @@ export class AccountService {
      * Register the user.
      */
 
-    this.http.post<Account>(environment.API_URL + 'register', data, { headers: new HttpHeaders().set('Content-Type', 'application/json') }).subscribe( (data:any) => {
+    this.http.post<Account>(environment.API_URL + 'register', data, { withCredentials: true }).subscribe( (data:any) => {
       if (data.status == 'Shopper registered') {
         this.router.navigate(['/']);
       } else if (data.status == 'Brand registered') {
