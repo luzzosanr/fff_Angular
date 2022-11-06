@@ -8,6 +8,7 @@ import { AccountComponent } from './pages/shopping/account/account.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { ProductComponent } from './pages/shopping/product/product.component';
 import { CartComponent } from './pages/shopping/cart/cart.component';
+import { HistoryComponent } from './pages/shopping/history/history.component';
 
 const routes: Routes = [
     {path: '', component: ShopComponent},
@@ -15,6 +16,7 @@ const routes: Routes = [
     {path: 'account', component: AccountComponent, canActivate: [AuthGuard]},
     {path: 'register', component: RegisterComponent},
     {path: 'cart', component: CartComponent, canActivate: [AuthGuard]},
+    {path: 'history', component: HistoryComponent},
     {path: 'admin', children: [
         {path: 'login', component: LoginComponent},
         {path: 'logout', component: AccountComponent},

@@ -1,0 +1,13 @@
+<div>
+    <h1>Shopping Cart</h1>
+    <div *ngIf="historyItems.length > 0">
+        <div *ngFor="let item of historyItems">
+            <h4>{{ item.name }}</h4>
+            <img [src]="environment.full_link_image(item.image)" class="img-fluid" />
+            <h4>{{ item.quantity }}</h4>
+        </div>
+    </div>
+    <div *ngIf="historyItems.length === 0">
+        <h3>You've never bought anything</h3>
+    </div>
+</div>

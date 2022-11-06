@@ -26,4 +26,8 @@ export class AccountComponent implements OnInit {
     this.router.navigate(['/']);
   }
 
+  history() {
+    this.router.navigate(['/history']);
+  }
+
 }

@@ -45,4 +45,12 @@ export class ProductsService {
 
     return this.http.get(environment.API_URL + 'cart', { withCredentials: true })
   }
+
+  getHistory() {
+    /**
+     * Get history of a user.
+     */
+
+    return this.http.get(environment.API_URL + 'history', { withCredentials: true })
+  }
 }

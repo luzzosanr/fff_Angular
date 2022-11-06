@@ -56,6 +56,26 @@ export class AccountService {
       }
     });
   }
+
+  checkStatus(status: string) {
+    /**
+     * Check the status of a request :
+     * @return true if the request is a success.
+     * Navigate to login page if the request is a not logged.
+     * Navigate to admin's login page if the request is a not logged on admin page.
+     */
+
+    if (status == 'success') return true;
+
+    if (status == 'not logged' && !this.router.url.includes('admin')) {
+      this.router.navigate(['/login']);
+      return false;
+    }
+
+    if (status == 'not logged') this.router.navigate(['/admin/login']);
+
+    return false;
+  }
 }
 
 class Account {

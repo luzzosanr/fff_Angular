@@ -19,6 +19,7 @@ import { HttpClientModule, HttpClientXsrfModule } from '@angular/common/http';
 import { RegisterComponent } from './pages/register/register.component';
 import { ProductComponent } from './pages/shopping/product/product.component';
 import { CartComponent } from './pages/shopping/cart/cart.component';
+import { HistoryComponent } from './pages/shopping/history/history.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { CartComponent } from './pages/shopping/cart/cart.component';
     RegisterComponent,
     ProductComponent,
     CartComponent,
+    HistoryComponent,
   ],
   imports: [
     BrowserModule,
