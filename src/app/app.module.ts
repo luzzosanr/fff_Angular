@@ -20,6 +20,8 @@ import { RegisterComponent } from './pages/register/register.component';
 import { ProductComponent } from './pages/shopping/product/product.component';
 import { CartComponent } from './pages/shopping/cart/cart.component';
 import { HistoryComponent } from './pages/shopping/history/history.component';
+import { CatalogComponent } from './pages/brands/catalog/catalog.component';
+import { CreateItemComponent } from './components/catalog/create-item/create-item.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +40,8 @@ import { HistoryComponent } from './pages/shopping/history/history.component';
     ProductComponent,
     CartComponent,
     HistoryComponent,
+    CatalogComponent,
+    CreateItemComponent,
   ],
   imports: [
     BrowserModule,

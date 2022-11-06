@@ -1,0 +1,36 @@
+import { Component, OnInit } from '@angular/core';
+import { BrandsService } from 'src/app/services/brands.service';
+import { Product } from 'src/environments/environment';
+import { AccountService } from 'src/app/services/account.service';
+
+@Component({
+  selector: 'app-catalog',
+  templateUrl: './catalog.component.html',
+  styleUrls: ['./catalog.component.css']
+})
+export class CatalogComponent implements OnInit {
+  products: Product[] = []
+  modifying: String = "";
+
+  constructor(
+    private service: BrandsService,
+    private account: AccountService
+  ) { }
+
+  ngOnInit(): void {
+    this.service.getCatalog().subscribe((data: any) => {
+      if (this.account.checkStatus(data.status)) {
+        this.products = data.products;
+      }
+    });
+  }
+
+  update(data: any) {
+    this.service.updateStock({"stock": data.value['new_stock'], "slug": data.value['slug']});
+  }
+
+  detail(slug: String) {
+    this.modifying = slug;
+  }
+
+}

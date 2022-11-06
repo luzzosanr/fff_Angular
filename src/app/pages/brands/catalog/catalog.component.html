@@ -1,0 +1,25 @@
+<div>
+    <h1>Catalog</h1>
+    {{ modifying }}
+    <div *ngFor="let item of products">
+        <div *ngIf="item.slug != modifying">
+            <h4>{{ item.name }}</h4>
+            <h4>{{ item.price }}</h4>
+            <h4>{{ item.stock }}</h4>
+            <form #data="ngForm" (ngSubmit)="update(data)">
+                <input type="hidden" name="slug" [(ngModel)]="item.slug" ngModel>
+                <input type="number" name="new_stock" [placeholder]="item.stock" min="0" ngModel/>
+                <button type="submit">Update stock</button>
+            </form>
+            <p>Is available : {{ item.is_available }}</p>
+            <button (click)="detail(item.slug)">Modify</button>
+        </div>
+        <div *ngIf="item.slug == modifying">
+            <app-create-item [product]="item" (onValidation)="detail('')"></app-create-item>
+            <button (click)="detail('')" >Cancel</button>
+        </div>
+    </div>
+    <div *ngIf="products.length === 0">
+        <h4>No products</h4>
+    </div>
+</div>
