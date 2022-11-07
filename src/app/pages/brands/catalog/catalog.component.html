@@ -1,8 +1,18 @@
 <div>
     <h1>Catalog</h1>
-    {{ modifying }}
+    <p>
+        Available products :
+        <input type="checkbox" [(ngModel)]="available" />
+    </p>
+    <div *ngIf="modifying == '__new__'">
+        <app-create-item (onValidation)="detail('')"></app-create-item>
+        <button (click)="detail('')" >Cancel</button>
+    </div>
+    <div *ngIf="modifying != '__new__'">
+        <button (click)="detail('__new__')" >Add a new product</button>
+    </div>
     <div *ngFor="let item of products">
-        <div *ngIf="item.slug != modifying">
+        <div *ngIf="item.slug != modifying && available == item.is_available">
             <h4>{{ item.name }}</h4>
             <h4>{{ item.price }}</h4>
             <h4>{{ item.stock }}</h4>
@@ -11,7 +21,6 @@
                 <input type="number" name="new_stock" [placeholder]="item.stock" min="0" ngModel/>
                 <button type="submit">Update stock</button>
             </form>
-            <p>Is available : {{ item.is_available }}</p>
             <button (click)="detail(item.slug)">Modify</button>
         </div>
         <div *ngIf="item.slug == modifying">

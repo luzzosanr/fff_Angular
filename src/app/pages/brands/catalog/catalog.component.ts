@@ -11,6 +11,7 @@ import { AccountService } from 'src/app/services/account.service';
 export class CatalogComponent implements OnInit {
   products: Product[] = []
   modifying: String = "";
+  available: boolean = true; // Whether is showing available products or unavailable products
 
   constructor(
     private service: BrandsService,
@@ -33,4 +34,7 @@ export class CatalogComponent implements OnInit {
     this.modifying = slug;
   }
 
+  set availableProducts(available: boolean) {
+    this.available = available;
+  }
 }

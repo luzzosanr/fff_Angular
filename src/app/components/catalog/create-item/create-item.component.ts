@@ -3,7 +3,7 @@ import { environment, Product } from 'src/environments/environment';
 import { BrandsService } from 'src/app/services/brands.service';
 
 @Component({
-  selector: 'app-create-item[product]',
+  selector: 'app-create-item',
   templateUrl: './create-item.component.html',
   styleUrls: ['./create-item.component.css']
 })
