@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { ProductsService } from 'src/app/services/products.service';  
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
+import { AccountService } from 'src/app/services/account.service';
 
 
 @Component({
@@ -20,7 +21,8 @@ export class ProductComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private productsService: ProductsService,
-    private router: Router
+    private router: Router,
+    private accountService: AccountService,
   ) { }
 
   ngOnInit(): void {
@@ -49,7 +51,16 @@ export class ProductComponent implements OnInit {
       "brand": this.brand,
     }
     this.productsService.addToCart(params).subscribe((data: any) => {
-      this.router.navigate(['/cart']);
+
+      if (this.accountService.checkStatus(data.status))
+      {
+        this.router.navigate(['/cart']);
+      }
+
+    }, (error: any) => {
+      if (error.status == 404) {
+        this.router.navigate(['/cart']);
+      }
     });
   }
 

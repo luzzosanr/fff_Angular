@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductsService } from 'src/app/services/products.service';
 import { environment } from 'src/environments/environment';
+import { AccountService } from 'src/app/services/account.service';
 
 @Component({
   selector: 'app-cart',
@@ -12,12 +13,16 @@ export class CartComponent implements OnInit {
   environment = environment;
 
   constructor(
-    private productsService: ProductsService
+    private productsService: ProductsService,
+    private accountService: AccountService,
   ) { }
 
   ngOnInit(): void {
     this.productsService.getCart().subscribe( (data:any) => {
-      this.cartItems = data.cart_items;
+      if (this.accountService.checkStatus(data.status))
+      {
+        this.cartItems = data.cart_items;
+      }
     });
   }
 

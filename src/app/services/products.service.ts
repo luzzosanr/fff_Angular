@@ -33,7 +33,7 @@ export class ProductsService {
      */
 
     let headers = new HttpHeaders({
-      'X-CSRFTOKEN': 'CyTiGKPVOrf1PqWmUgaYCWNBXVkruWj0'
+      'X-CSRFTOKEN': '8WKsJUwBOeh0tQHmPghxM95iYqkDSCXI'
     });
     return this.http.post(environment.API_URL + 'add_to_cart', data, { withCredentials: true, headers: headers })
   }

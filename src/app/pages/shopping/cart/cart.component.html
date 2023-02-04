@@ -6,7 +6,7 @@
             <h4>{{ item.name }}</h4>
             <p>{{ item.description }}</p>
             <h4>{{ item.price / 100 | currency }}</h4>
-            <h4>{{ item.quantity }}</h4>
+            <p>Quantity : {{ item.quantity }}</p>
             <h4>{{ item.quantity * item.price / 100 | currency }}</h4>
         </div>
     </div>
