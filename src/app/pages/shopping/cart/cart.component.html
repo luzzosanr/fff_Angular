@@ -8,6 +8,10 @@
             <h4>{{ item.price / 100 | currency }}</h4>
             <p>Quantity : {{ item.quantity }}</p>
             <h4>{{ item.quantity * item.price / 100 | currency }}</h4>
+            <div>
+                <input type="number" [(ngModel)]="item.quantity" (ngModelChange)="this.changeQuantity(item)" />
+            </div>
+            <button (click)="this.removeItem(item)" class="btn btn-danger">Remove</button>
         </div>
         <div>
             <button (click)="this.goToCheckout()" class="btn btn-danger">Checkout</button>

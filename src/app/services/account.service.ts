@@ -29,7 +29,7 @@ export class AccountService {
      */
     
     let headers = new HttpHeaders({
-      'X-CSRFTOKEN': 'OYPlnPDcOEA9wjI1PKW3uhVm6qRi1cRX'
+      'X-CSRFTOKEN': '20wBzRg8QtmcB67trruTy9VVxlEOM1Nb'
     });
 
     this.http.post(environment.API_URL + 'login', data, { withCredentials: true, headers }).subscribe( (res:any) => {
@@ -50,7 +50,7 @@ export class AccountService {
      */
 
     let headers = new HttpHeaders({
-      'X-CSRFTOKEN': 'OYPlnPDcOEA9wjI1PKW3uhVm6qRi1cRX'
+      'X-CSRFTOKEN': '20wBzRg8QtmcB67trruTy9VVxlEOM1Nb'
     });
 
     this.http.post<Account>(environment.API_URL + 'register', data, { withCredentials: true, headers }).subscribe( (data:any) => {

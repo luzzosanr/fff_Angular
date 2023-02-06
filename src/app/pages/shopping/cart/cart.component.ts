@@ -32,4 +32,24 @@ export class CartComponent implements OnInit {
     this.router.navigate(['/checkout/address']);
   }
 
+  changeQuantity(item: any) {
+    this.productsService.change_cart_quantity({
+      "quantity": item.quantity,
+      "slug": item.slug,
+      "brand": item.brand,
+    }).subscribe();
+  }
+
+  removeItem(item: any) {
+    this.productsService.removeFromCart({
+      "slug": item.slug,
+      "brand": item.brand,
+    }).subscribe( (data:any) => {
+      if (this.accountService.checkStatus(data.status))
+      {
+        this.cartItems = this.cartItems.filter((i: any) => i.id != item.id);
+      }
+    });
+  }
+
 }
