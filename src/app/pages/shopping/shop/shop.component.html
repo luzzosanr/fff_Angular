@@ -1,4 +1,4 @@
 <div class='main'>
-    <app-shop-filter></app-shop-filter>
-    <app-shop-render [filters]='filters'></app-shop-render>
+    <app-shop-filter (filter)="UpdateFilter($event)" [brands]="brands" ></app-shop-filter>
+    <app-shop-render [products]='renderedProducts'></app-shop-render>
 </div>

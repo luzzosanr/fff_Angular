@@ -29,12 +29,17 @@ export class AccountService {
      */
     
     let headers = new HttpHeaders({
-      'X-CSRFTOKEN': 'snvUDz3Z36Xwmp0ZIzFq9bGe0fyZuYlE'
+      'X-CSRFTOKEN': 'OYPlnPDcOEA9wjI1PKW3uhVm6qRi1cRX'
     });
 
-    this.http.post(environment.API_URL + 'login', data, { withCredentials: true, headers }).subscribe( (data:any) => {
-      if (data.status != 'not logged') {
+    this.http.post(environment.API_URL + 'login', data, { withCredentials: true, headers }).subscribe( (res:any) => {
+      if (res.status != 'not logged' && data['user_type'] == 'SHOPPER')
+      {
         this.router.navigate(['/']);
+      }
+      else if (res.status != 'not logged' && data['user_type'] == 'BRAND')
+      {
+        this.router.navigate(['/admin']);
       }
     });
   }
@@ -45,7 +50,7 @@ export class AccountService {
      */
 
     let headers = new HttpHeaders({
-      'X-CSRFTOKEN': 'snvUDz3Z36Xwmp0ZIzFq9bGe0fyZuYlE'
+      'X-CSRFTOKEN': 'OYPlnPDcOEA9wjI1PKW3uhVm6qRi1cRX'
     });
 
     this.http.post<Account>(environment.API_URL + 'register', data, { withCredentials: true, headers }).subscribe( (data:any) => {

@@ -35,14 +35,14 @@ export class ProductsService {
      */
 
     let headers = new HttpHeaders({
-      'X-CSRFTOKEN': 'snvUDz3Z36Xwmp0ZIzFq9bGe0fyZuYlE'
+      'X-CSRFTOKEN': 'OYPlnPDcOEA9wjI1PKW3uhVm6qRi1cRX'
     });
     return this.http.post(environment.API_URL + 'add_to_cart', data, { withCredentials: true, headers: headers })
   }
 
   accessPayment(data: any) {
     let headers = new HttpHeaders({
-      'X-CSRFTOKEN': 'snvUDz3Z36Xwmp0ZIzFq9bGe0fyZuYlE'
+      'X-CSRFTOKEN': 'OYPlnPDcOEA9wjI1PKW3uhVm6qRi1cRX'
     });
     this.http.post(environment.API_URL + 'payment', data, { withCredentials: true, headers: headers }).subscribe( (data:any) => {
       window.location.href = data.url;

@@ -36,6 +36,7 @@ export class Product {
   description: string = "";
   image_url: string = "";
   is_available: boolean = false;
+  is_unlimited: boolean = true;
   image: File | undefined;
 }
 

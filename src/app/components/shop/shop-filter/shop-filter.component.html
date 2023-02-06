@@ -1,1 +1,8 @@
-<p>shop-filter works!</p>
+<div>
+    <input type="number" [(ngModel)]="minPrice" (ngModelChange)="modifyPriceRange(minPrice = $event)" [min]="0" [max]="this.maxPrice" />
+    <input type="number" [(ngModel)]="maxPrice" (ngModelChange)="modifyPriceRange(minPrice = this.minPrice, maxPrice = $event)" [min]="this.minPrice" />
+    <div *ngFor="let brand of brands">
+        <input type="checkbox" (change)="modifyBrand(brand, $event)" checked />
+        {{brand}}
+    </div>
+</div>

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { BrandsService } from 'src/app/services/brands.service';
 import { Product } from 'src/environments/environment';
 import { AccountService } from 'src/app/services/account.service';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-catalog',
@@ -27,7 +28,7 @@ export class CatalogComponent implements OnInit {
   }
 
   update(data: any) {
-    this.service.updateStock({"stock": data.value['new_stock'], "slug": data.value['slug']});
+    this.service.updateStock({"stock": data.value["is_unlimited"] ? -1 : data.value["new_stock"], "slug": data.value['slug']});
   }
 
   detail(slug: String) {
