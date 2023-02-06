@@ -1,0 +1,7 @@
+<form #data="ngForm" (ngSubmit)="onSubmit(data)">
+    <div class="form-group">
+        <label for="address">Address</label>
+        <input type="text" [formControl]="address" class="form-control" name="address" ngModel>
+    </div>
+    <button type="submit">Submit</button>
+</form>

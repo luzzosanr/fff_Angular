@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -22,6 +22,7 @@ import { CartComponent } from './pages/shopping/cart/cart.component';
 import { HistoryComponent } from './pages/shopping/history/history.component';
 import { CatalogComponent } from './pages/brands/catalog/catalog.component';
 import { CreateItemComponent } from './components/catalog/create-item/create-item.component';
+import { AddressFormComponent } from './pages/shopping/buying/address-form/address-form.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { CreateItemComponent } from './components/catalog/create-item/create-ite
     HistoryComponent,
     CatalogComponent,
     CreateItemComponent,
+    AddressFormComponent,
   ],
   imports: [
     BrowserModule,
@@ -51,7 +53,8 @@ import { CreateItemComponent } from './components/catalog/create-item/create-ite
       cookieName: 'XSRF-TOKEN',
       headerName: 'X-CSRF-TOKEN'
     }),
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [
   ],

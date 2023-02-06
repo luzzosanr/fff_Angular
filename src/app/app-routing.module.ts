@@ -10,6 +10,7 @@ import { ProductComponent } from './pages/shopping/product/product.component';
 import { CartComponent } from './pages/shopping/cart/cart.component';
 import { HistoryComponent } from './pages/shopping/history/history.component';
 import { CatalogComponent } from './pages/brands/catalog/catalog.component';
+import { AddressFormComponent } from './pages/shopping/buying/address-form/address-form.component';
 
 const routes: Routes = [
     {path: '', component: ShopComponent},
@@ -18,6 +19,7 @@ const routes: Routes = [
     {path: 'register', component: RegisterComponent},
     {path: 'cart', component: CartComponent, canActivate: [AuthGuard]},
     {path: 'history', component: HistoryComponent},
+    {path: 'checkout/address', component: AddressFormComponent},
     {path: 'admin', children: [
         {path: '', component: CatalogComponent},
         {path: 'login', component: LoginComponent},

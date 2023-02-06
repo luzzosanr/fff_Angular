@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -9,6 +10,7 @@ export class ProductsService {
 
   constructor(
     private http: HttpClient,
+    private router: Router,
   ) { }
 
   getProducts(filter: any = null) {
@@ -33,9 +35,18 @@ export class ProductsService {
      */
 
     let headers = new HttpHeaders({
-      'X-CSRFTOKEN': '8WKsJUwBOeh0tQHmPghxM95iYqkDSCXI'
+      'X-CSRFTOKEN': 'snvUDz3Z36Xwmp0ZIzFq9bGe0fyZuYlE'
     });
     return this.http.post(environment.API_URL + 'add_to_cart', data, { withCredentials: true, headers: headers })
+  }
+
+  accessPayment(data: any) {
+    let headers = new HttpHeaders({
+      'X-CSRFTOKEN': 'snvUDz3Z36Xwmp0ZIzFq9bGe0fyZuYlE'
+    });
+    this.http.post(environment.API_URL + 'payment', data, { withCredentials: true, headers: headers }).subscribe( (data:any) => {
+      window.location.href = data.url;
+    })
   }
 
   getCart() {

@@ -22,7 +22,6 @@ export class LoginComponent {
      */
 
     data.value['user_type'] = this.routingService.isAdmin() ? 'BRAND' : 'SHOPPER';
-    console.log(data.value);
     
     this.service.login(data.value);
   }

@@ -9,6 +9,9 @@
             <p>Quantity : {{ item.quantity }}</p>
             <h4>{{ item.quantity * item.price / 100 | currency }}</h4>
         </div>
+        <div>
+            <button (click)="this.goToCheckout()" class="btn btn-danger">Checkout</button>
+        </div>
     </div>
     <div *ngIf="cartItems.length === 0">
         <h3>Your cart is empty</h3>

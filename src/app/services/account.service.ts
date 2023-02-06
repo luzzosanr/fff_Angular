@@ -29,7 +29,7 @@ export class AccountService {
      */
     
     let headers = new HttpHeaders({
-      'X-CSRFTOKEN': '8WKsJUwBOeh0tQHmPghxM95iYqkDSCXI'
+      'X-CSRFTOKEN': 'snvUDz3Z36Xwmp0ZIzFq9bGe0fyZuYlE'
     });
 
     this.http.post(environment.API_URL + 'login', data, { withCredentials: true, headers }).subscribe( (data:any) => {
@@ -45,7 +45,7 @@ export class AccountService {
      */
 
     let headers = new HttpHeaders({
-      'X-CSRFTOKEN': '8WKsJUwBOeh0tQHmPghxM95iYqkDSCXI'
+      'X-CSRFTOKEN': 'snvUDz3Z36Xwmp0ZIzFq9bGe0fyZuYlE'
     });
 
     this.http.post<Account>(environment.API_URL + 'register', data, { withCredentials: true, headers }).subscribe( (data:any) => {
@@ -75,6 +75,11 @@ export class AccountService {
     if (status == 'not logged') this.router.navigate(['/admin/login']);
 
     return false;
+  }
+
+  getPaymentProfile()
+  {
+    return this.http.get(environment.API_URL + 'get_payment_profile', { withCredentials: true });
   }
 }
 

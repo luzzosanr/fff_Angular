@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProductsService } from 'src/app/services/products.service';
 import { environment } from 'src/environments/environment';
 import { AccountService } from 'src/app/services/account.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cart',
@@ -13,8 +14,9 @@ export class CartComponent implements OnInit {
   environment = environment;
 
   constructor(
-    private productsService: ProductsService,
+    public productsService: ProductsService,
     private accountService: AccountService,
+    private router: Router,
   ) { }
 
   ngOnInit(): void {
@@ -24,6 +26,10 @@ export class CartComponent implements OnInit {
         this.cartItems = data.cart_items;
       }
     });
+  }
+
+  goToCheckout() {
+    this.router.navigate(['/checkout/address']);
   }
 
 }
