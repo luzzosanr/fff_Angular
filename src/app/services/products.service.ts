@@ -36,35 +36,24 @@ export class ProductsService {
      * Add product to cart.
      */
 
-    let headers = new HttpHeaders({
-      'X-CSRFTOKEN': '20wBzRg8QtmcB67trruTy9VVxlEOM1Nb'
-    });
-    return this.http.post(environment.API_URL + 'add_to_cart', data, { withCredentials: true, headers: headers })
+    return this.http.post(environment.API_URL + 'add_to_cart', data, { withCredentials: true, headers: this.account.csrfHeader() })
   }
 
-  removeFromCart(data: any) {
+  removeFromCart(data: any)
+  {
     /**
      * Remove product from cart.
      */
-
-    let headers = new HttpHeaders({
-      'X-CSRFTOKEN': '20wBzRg8QtmcB67trruTy9VVxlEOM1Nb'
-    });
-    return this.http.post(environment.API_URL + 'remove_from_cart', data, { withCredentials: true, headers: headers })
+    return this.http.post(environment.API_URL + 'remove_from_cart', data, { withCredentials: true, headers: this.account.csrfHeader() })
   }
 
   change_cart_quantity(data: any) {
-    let headers = new HttpHeaders({
-      'X-CSRFTOKEN': '20wBzRg8QtmcB67trruTy9VVxlEOM1Nb'
-    });
-    return this.http.post(environment.API_URL + 'change_cart_quantity', data, { withCredentials: true, headers: headers })
+    return this.http.post(environment.API_URL + 'change_cart_quantity', data, { withCredentials: true, headers: this.account.csrfHeader() })
   }
 
-  accessPayment(data: any) {
-    let headers = new HttpHeaders({
-      'X-CSRFTOKEN': '20wBzRg8QtmcB67trruTy9VVxlEOM1Nb'
-    });
-    this.http.post(environment.API_URL + 'payment', data, { withCredentials: true, headers: headers }).subscribe( (data:any) => {
+  accessPayment(data: any)
+  {
+    this.http.post(environment.API_URL + 'payment', data, { withCredentials: true, headers: this.account.csrfHeader() }).subscribe( (data:any) => {
       if (this.account.checkStatus(data.status))
       {
         window.location.href = data.url;

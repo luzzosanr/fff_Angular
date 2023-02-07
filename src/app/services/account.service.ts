@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Router } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,8 @@ export class AccountService {
 
   constructor(
     private http: HttpClient,
-    private router: Router
+    private router: Router,
+    private cookieService: CookieService
   ) { }
 
   logout() {
@@ -27,12 +29,8 @@ export class AccountService {
     /**
      * Login the user.
      */
-    
-    let headers = new HttpHeaders({
-      'X-CSRFTOKEN': '20wBzRg8QtmcB67trruTy9VVxlEOM1Nb'
-    });
 
-    this.http.post(environment.API_URL + 'login', data, { withCredentials: true, headers }).subscribe( (res:any) => {
+    this.http.post(environment.API_URL + 'login', data, { withCredentials: true, headers: this.csrfHeader()}).subscribe( (res:any) => {
       if (res.status != 'not logged' && data['user_type'] == 'SHOPPER')
       {
         this.router.navigate(['/']);
@@ -49,11 +47,7 @@ export class AccountService {
      * Register the user.
      */
 
-    let headers = new HttpHeaders({
-      'X-CSRFTOKEN': '20wBzRg8QtmcB67trruTy9VVxlEOM1Nb'
-    });
-
-    this.http.post<Account>(environment.API_URL + 'register', data, { withCredentials: true, headers }).subscribe( (data:any) => {
+    this.http.post<Account>(environment.API_URL + 'register', data, { withCredentials: true, headers: this.csrfHeader() }).subscribe( (data:any) => {
       if (data.status == 'Shopper registered') {
         this.router.navigate(['/']);
       } else if (data.status == 'Brand registered') {
@@ -85,6 +79,18 @@ export class AccountService {
   getPaymentProfile()
   {
     return this.http.get(environment.API_URL + 'get_payment_profile', { withCredentials: true });
+  }
+
+  csrfHeader()
+  {
+    /**
+     * Get the CSRF header.
+     * @return the CSRF header.
+     */
+
+    return new HttpHeaders({
+      'X-CSRFTOKEN': this.cookieService.get('CSRFTOKEN')
+    });
   }
 }
 
