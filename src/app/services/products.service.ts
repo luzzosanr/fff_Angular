@@ -57,7 +57,7 @@ export class ProductsService {
       {
         window.location.href = data.url;
       }
-      else if (data.status == 'empty_cart')
+      else if (data.status == 'empty_cart' || data.status == 'not_enough_stock')
       {
         this.router.navigate(['/cart']);
       }

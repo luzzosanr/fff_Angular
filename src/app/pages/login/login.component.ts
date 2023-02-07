@@ -21,15 +21,14 @@ export class LoginComponent {
     /**
      * Login the user.
      */
-
     data.value['user_type'] = this.routingService.isAdmin() ? 'BRAND' : 'SHOPPER';
     
     this.service.login(data.value).subscribe( (res:any) => {
-      if ((res.status == 'success' || res.status == "already logged") && data['user_type'] == 'SHOPPER')
+      if ((res.status == 'success' || res.status == "already logged") && data.value.user_type == 'SHOPPER')
       {
         this.router.navigate(['/']);
       }
-      else if ((res.status == 'success' || res.status == "already logged") && data['user_type'] == 'BRAND')
+      else if ((res.status == 'success' || res.status == "already logged") && data.value.user_type == 'BRAND')
       {
         this.router.navigate(['/admin']);
       }

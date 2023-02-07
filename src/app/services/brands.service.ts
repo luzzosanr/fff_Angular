@@ -31,7 +31,10 @@ export class BrandsService {
 
   updateProduct(data: any) {
     return this.http.post(environment.API_URL + 'admin/brand/update/product', data, { withCredentials: true, headers: environment.get_csrf_headers() }).subscribe((data: any) => {
-      this.account.checkStatus(data.status)
+      if (this.account.checkStatus(data.status))
+      {
+        window.location.reload();
+      }
     }, (error) => {
       if (error.status == 404) {
         this.router.navigate(['/admin']);
