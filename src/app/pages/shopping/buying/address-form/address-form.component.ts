@@ -22,7 +22,10 @@ export class AddressFormComponent implements OnInit {
       /**
        * Can be done with form group if more fields are added.
        */
-      this.address.setValue(data.address);
+      if (this.accountService.checkStatus(data.status))
+      {
+        this.address.setValue(data.address);
+      }
     })
   }
 

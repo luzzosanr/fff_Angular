@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Router } from '@angular/router';
+import { AccountService } from './account.service';
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +12,7 @@ export class ProductsService {
   constructor(
     private http: HttpClient,
     private router: Router,
+    private account: AccountService
   ) { }
 
   getProducts(filter: any = null) {
@@ -63,7 +65,10 @@ export class ProductsService {
       'X-CSRFTOKEN': '20wBzRg8QtmcB67trruTy9VVxlEOM1Nb'
     });
     this.http.post(environment.API_URL + 'payment', data, { withCredentials: true, headers: headers }).subscribe( (data:any) => {
-      window.location.href = data.url;
+      if (this.account.checkStatus(data.status))
+      {
+        window.location.href = data.url;
+      }
     })
   }
 

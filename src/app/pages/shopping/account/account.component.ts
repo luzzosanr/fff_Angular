@@ -15,6 +15,9 @@ export class AccountComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.service.getPaymentProfile().subscribe( (res:any) => {
+      this.service.checkStatus(res.status);
+    });
   }
 
   logout() {

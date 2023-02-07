@@ -15,9 +15,9 @@ import { AddressFormComponent } from './pages/shopping/buying/address-form/addre
 const routes: Routes = [
     {path: '', component: ShopComponent},
     {path: 'login', component: LoginComponent},
-    {path: 'account', component: AccountComponent, canActivate: [AuthGuard]},
+    {path: 'account', component: AccountComponent},
     {path: 'register', component: RegisterComponent},
-    {path: 'cart', component: CartComponent, canActivate: [AuthGuard]},
+    {path: 'cart', component: CartComponent},
     {path: 'history', component: HistoryComponent},
     {path: 'checkout/address', component: AddressFormComponent},
     {path: 'admin', children: [
