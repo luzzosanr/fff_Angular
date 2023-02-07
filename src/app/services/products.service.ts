@@ -35,7 +35,6 @@ export class ProductsService {
     /**
      * Add product to cart.
      */
-
     return this.http.post(environment.API_URL + 'add_to_cart', data, { withCredentials: true, headers: this.account.csrfHeader() })
   }
 
@@ -57,6 +56,10 @@ export class ProductsService {
       if (this.account.checkStatus(data.status))
       {
         window.location.href = data.url;
+      }
+      else if (data.status == 'empty_cart')
+      {
+        this.router.navigate(['/cart']);
       }
     })
   }

@@ -1,5 +1,11 @@
 <!-- Basic login form -->
 
+<div *ngIf='this.errorMessage != ""'>
+    <p class="error">
+        {{this.errorMessage}}
+    </p>
+</div>
+
 <form #data="ngForm" (ngSubmit)="onSubmit(data)">
     <div class="form-group">
         <label for="email">Email</label>

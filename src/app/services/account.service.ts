@@ -30,16 +30,7 @@ export class AccountService {
      * Login the user.
      */
 
-    this.http.post(environment.API_URL + 'login', data, { withCredentials: true, headers: this.csrfHeader()}).subscribe( (res:any) => {
-      if (res.status != 'not logged' && data['user_type'] == 'SHOPPER')
-      {
-        this.router.navigate(['/']);
-      }
-      else if (res.status != 'not logged' && data['user_type'] == 'BRAND')
-      {
-        this.router.navigate(['/admin']);
-      }
-    });
+    return this.http.post(environment.API_URL + 'login', data, { withCredentials: true, headers: this.csrfHeader()})
   }
 
   register(data: any) {
@@ -47,13 +38,7 @@ export class AccountService {
      * Register the user.
      */
 
-    this.http.post<Account>(environment.API_URL + 'register', data, { withCredentials: true, headers: this.csrfHeader() }).subscribe( (data:any) => {
-      if (data.status == 'Shopper registered') {
-        this.router.navigate(['/']);
-      } else if (data.status == 'Brand registered') {
-        this.router.navigate(['/admin']);
-      }
-    });
+    return this.http.post<Account>(environment.API_URL + 'register', data, { withCredentials: true, headers: this.csrfHeader() })
   }
 
   checkStatus(status: string) {
@@ -89,7 +74,7 @@ export class AccountService {
      */
 
     return new HttpHeaders({
-      'X-CSRFTOKEN': this.cookieService.get('CSRFTOKEN')
+      'X-CSRFTOKEN': this.cookieService.get('csrftoken')
     });
   }
 }

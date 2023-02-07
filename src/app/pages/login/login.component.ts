@@ -9,6 +9,7 @@ import { RoutingService } from 'src/app/services/routing.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
+  errorMessage: string = '';
   
   constructor(
     private service: AccountService,
@@ -23,7 +24,21 @@ export class LoginComponent {
 
     data.value['user_type'] = this.routingService.isAdmin() ? 'BRAND' : 'SHOPPER';
     
-    this.service.login(data.value);
+    this.service.login(data.value).subscribe( (res:any) => {
+      if ((res.status == 'success' || res.status == "already logged") && data['user_type'] == 'SHOPPER')
+      {
+        this.router.navigate(['/']);
+      }
+      else if ((res.status == 'success' || res.status == "already logged") && data['user_type'] == 'BRAND')
+      {
+        this.router.navigate(['/admin']);
+      }
+
+      if (res.status == 'wrong credentials') {
+        this.errorMessage = 'Wrong credentials';
+      }
+
+    });
   }
 
   register() {
