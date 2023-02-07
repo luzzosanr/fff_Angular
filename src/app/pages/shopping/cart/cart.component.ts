@@ -52,4 +52,8 @@ export class CartComponent implements OnInit {
     });
   }
 
+  renderItem(item: any) {
+    this.router.navigate([item.brand, item.slug]);
+  }
+
 }
