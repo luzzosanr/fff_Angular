@@ -1,0 +1,21 @@
+.main {
+    flex-direction: row;
+    display: flex;
+    font-size: 25px;
+    margin-bottom: 15px;
+}
+
+.square {
+    width: 14px;
+    height: 14px;
+    background-color: #655021;
+    border: 1px solid #655021;
+    border-radius: 5px;
+    align-self: center;
+    margin-top: 5px;
+}
+
+div + div {
+    margin-left: 12px;
+}
+

@@ -2,11 +2,13 @@
 <!-- - Logo in assets.images -->
 <!-- - Navigation menu -->
 <!-- - Account menu -->
-
-<div>
-    <a [routerLink]="''">
-        <img class="logo" src="assets/images/logo.png" alt="Logo" />
-    </a>
-    <app-navigation-menu></app-navigation-menu>
-    <app-account-menu></app-account-menu>
+<div class="main">
+    <div class="row">
+        <a [routerLink]="''">
+            <img class="logo" src="assets/images/logo_transparent.png" alt="Logo" />
+        </a>
+        <app-navigation-menu></app-navigation-menu>
+        <app-account-menu></app-account-menu>
+    </div>
+    <hr>
 </div>

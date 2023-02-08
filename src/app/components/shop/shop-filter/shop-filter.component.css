@@ -1,0 +1,26 @@
+h1 {
+    font-size: 25px;
+    margin-bottom: 15px;
+    font-weight: normal;
+}
+
+.main {
+    margin-left: 25px;
+    flex-direction: row;
+    font-family: "Avenir", sans-serif;
+    justify-content: space-between;
+    display: flex;
+    height: 100%;
+}
+
+.content {
+    flex: 1;
+    margin-right: 25px;
+}
+
+.vertical-line {
+    border: none;
+    background-color: black;
+    min-height: 100%;
+    width: 1px;
+}

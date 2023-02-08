@@ -1,4 +1,5 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { Options, LabelType } from '@angular-slider/ngx-slider';
 
 @Component({
   selector: 'app-shop-filter',
@@ -44,5 +45,24 @@ export class ShopFilterComponent implements OnInit {
   isCheck(brand: string) {
     return this.selectedBrands.includes(brand);
   }
+
+  priceSliderOptions: Options = {
+    floor: 0,
+    ceil: 100000,
+    step: 100,
+    showSelectionBar: true,
+    getSelectionBarColor: () => { return "#655021" },
+    getPointerColor: () => { return "#655021" },
+    translate: (value: number, label: LabelType): string => {
+      switch (label) {
+        case LabelType.Low:
+          return '$' + value;
+        case LabelType.High:
+          return '$' + value;
+        default:
+          return '';
+      }
+    }
+  };
 
 }

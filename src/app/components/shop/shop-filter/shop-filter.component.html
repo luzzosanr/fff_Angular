@@ -1,8 +1,20 @@
-<div>
-    <input type="number" [(ngModel)]="minPrice" (ngModelChange)="modifyPriceRange(minPrice = $event)" [min]="0" [max]="this.maxPrice" />
-    <input type="number" [(ngModel)]="maxPrice" (ngModelChange)="modifyPriceRange(minPrice = this.minPrice, maxPrice = $event)" [min]="this.minPrice" />
-    <div *ngFor="let brand of brands">
-        <input type="checkbox" (change)="modifyBrand(brand, $event)" checked />
-        {{brand}}
+<div class="main">
+    <div class="content">
+        <h1>
+            FILTER BY
+        </h1>
+        <div class="price">
+            <app-shop-filter-name [title]="'price'" ></app-shop-filter-name>
+            <div class="price-slider">
+                <ngx-slider [(value)]="minPrice" [(highValue)]="maxPrice" [options]="priceSliderOptions"></ngx-slider>
+            </div>
+            <input type="number" [(ngModel)]="minPrice" (ngModelChange)="modifyPriceRange(minPrice = $event)" [min]="0" [max]="this.maxPrice" />
+            <input type="number" [(ngModel)]="maxPrice" (ngModelChange)="modifyPriceRange(minPrice = this.minPrice, maxPrice = $event)" [min]="this.minPrice" />
+        </div>
+        <div *ngFor="let brand of brands">
+            <input type="checkbox" (change)="modifyBrand(brand, $event)" checked />
+            {{brand}}
+        </div>
     </div>
+    <hr class="vertical-line">
 </div>

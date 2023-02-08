@@ -1,15 +1,14 @@
 /* div is horizontal */
-div {
+.row {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    width: 100%;
 }
 
 .logo {
-    height: 100px;
-    flex: 1
+    height: 60px;
+    flex: 1;
 }
 
 app-navigation-menu {
@@ -18,4 +17,16 @@ app-navigation-menu {
 
 app-account-menu {
     flex: 2;
+}
+
+.main {
+    margin-left: 15px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+
+hr {
+    height: 1px;
+    border: none;
+    background-color: black;
 }

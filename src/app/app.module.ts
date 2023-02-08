@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgxSliderModule } from '@angular-slider/ngx-slider';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -23,6 +24,7 @@ import { HistoryComponent } from './pages/shopping/history/history.component';
 import { CatalogComponent } from './pages/brands/catalog/catalog.component';
 import { CreateItemComponent } from './components/catalog/create-item/create-item.component';
 import { AddressFormComponent } from './pages/shopping/buying/address-form/address-form.component';
+import { ShopFilterNameComponent } from './components/shop/shop-filter-name/shop-filter-name.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +46,7 @@ import { AddressFormComponent } from './pages/shopping/buying/address-form/addre
     CatalogComponent,
     CreateItemComponent,
     AddressFormComponent,
+    ShopFilterNameComponent,
   ],
   imports: [
     BrowserModule,
@@ -55,6 +58,7 @@ import { AddressFormComponent } from './pages/shopping/buying/address-form/addre
     }),
     FormsModule,
     ReactiveFormsModule,
+    NgxSliderModule
   ],
   providers: [
   ],
