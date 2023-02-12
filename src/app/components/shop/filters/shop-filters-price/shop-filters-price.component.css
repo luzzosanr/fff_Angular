@@ -1,0 +1,44 @@
+.rangeMin {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.labels {
+    width: 60%;
+    flex-direction: row;
+    justify-content: space-between;
+    display: flex;
+    font-size: 15px;
+    color: #655021;
+    margin-bottom: 5px;
+}
+
+.range {
+    position: relative;
+    width: 60%;
+    height: 16px;
+    margin-bottom: 15px;
+}
+
+.range__line {
+    position: absolute;
+    left: 0;
+    top: 4.5px;
+    width: 100%;
+    height: 4px;
+    background-color: #655021;
+    border-radius: 4px;
+    opacity: 0.5;
+}
+
+.minCursor, .maxCursor {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 13px;
+    height: 13px;
+    background-color: #655021;
+    border-radius: 10px;
+    opacity: 1;
+}

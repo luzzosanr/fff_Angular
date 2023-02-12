@@ -14,6 +14,7 @@ export class ShopComponent implements OnInit {
     "brands": this.brandsFilter,
   }
   brands: string[] = [];
+  extremePrices: [number, number] = [0, 0]; // [min, max] of all products prices for filter
 
   constructor(
     private productsService: ProductsService,
@@ -25,6 +26,9 @@ export class ShopComponent implements OnInit {
       this.allProducts.forEach((product) => {
         if (!this.brands.includes(product.brand)) {
           this.brands.push(product.brand);
+        }
+        if (product.price > this.extremePrices[1]) {
+          this.extremePrices[1] = product.price;
         }
       });
       this.renderedProducts = this.allProducts;

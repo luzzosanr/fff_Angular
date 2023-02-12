@@ -1,0 +1,14 @@
+<div>
+    <app-shop-filter-name [title]="'price'" ></app-shop-filter-name>
+    <div class="labels">
+        <div class="label">$</div>
+        <div class="label">$$</div>
+    </div>
+    <div #container class="range">
+        <div class="range__line"></div>
+        <div #minCursor class="minCursor"></div>
+        <div #maxCursor class="maxCursor"></div>
+    </div>
+    <!-- <input type="number" [(ngModel)]="minPrice" [min]="0" [max]="this.maxPrice" />
+    <input type="number" [(ngModel)]="maxPrice" [min]="this.minPrice" /> -->
+</div>

@@ -1,4 +1,4 @@
-<div *ngFor="let item of products">
+<div class="main" *ngFor="let item of products">
     <a [routerLink]="['/', item.brand, item.slug]">
         <app-shop-item [item]="item" ></app-shop-item>
     </a>

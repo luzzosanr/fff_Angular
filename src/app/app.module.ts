@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { NgxSliderModule } from '@angular-slider/ngx-slider';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -25,6 +24,7 @@ import { CatalogComponent } from './pages/brands/catalog/catalog.component';
 import { CreateItemComponent } from './components/catalog/create-item/create-item.component';
 import { AddressFormComponent } from './pages/shopping/buying/address-form/address-form.component';
 import { ShopFilterNameComponent } from './components/shop/shop-filter-name/shop-filter-name.component';
+import { ShopFiltersPriceComponent } from './components/shop/filters/shop-filters-price/shop-filters-price.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +47,7 @@ import { ShopFilterNameComponent } from './components/shop/shop-filter-name/shop
     CreateItemComponent,
     AddressFormComponent,
     ShopFilterNameComponent,
+    ShopFiltersPriceComponent,
   ],
   imports: [
     BrowserModule,
@@ -57,8 +58,7 @@ import { ShopFilterNameComponent } from './components/shop/shop-filter-name/shop
       headerName: 'X-CSRF-TOKEN'
     }),
     FormsModule,
-    ReactiveFormsModule,
-    NgxSliderModule
+    ReactiveFormsModule
   ],
   providers: [
   ],
