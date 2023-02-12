@@ -1,0 +1,33 @@
+input[type="checkbox"] {
+    display: none;
+  }
+
+.box {
+    background-color: #655021;
+    border-radius: 4px;
+    height: 14px;
+    width: 14px;
+    margin-right: 5px;
+}
+
+.white_cross {
+    margin-top: -5px;
+    margin-left: 1px;
+    visibility: collapse;
+    color: white;
+    font-size: 15px;
+  }
+
+label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+
+input[type="checkbox"]:checked ~ * .white_cross {
+    visibility: visible;
+  }
+
+.content {
+    margin-left: 20px;
+}

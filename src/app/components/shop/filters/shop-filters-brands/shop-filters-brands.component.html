@@ -1,0 +1,10 @@
+<app-shop-filter-name [title]="'brands'"></app-shop-filter-name>
+<div *ngFor="let brand of brands" class="content">
+    <input type="checkbox" id=brand (change)="modifyBrand(brand, $event)" checked/>
+    <label for=brand>
+        <div class="box">
+            <div class="white_cross">✖</div>
+        </div>
+        {{brand}}
+    </label>
+</div>

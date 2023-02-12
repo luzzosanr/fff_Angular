@@ -4,10 +4,7 @@
             FILTER BY
         </h1>
         <app-shop-filters-price (filter)="this.filter.emit($event)" [extremePrice]="extremePrices" ></app-shop-filters-price>
-        <div *ngFor="let brand of brands">
-            <input type="checkbox" (change)="modifyBrand(brand, $event)" checked />
-            {{brand}}
-        </div>
+        <app-shop-filters-brands (filter)="this.filter.emit($event)" [brands]="brands"></app-shop-filters-brands>
     </div>
     <hr class="vertical-line">
 </div>

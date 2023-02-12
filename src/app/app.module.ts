@@ -25,6 +25,7 @@ import { CreateItemComponent } from './components/catalog/create-item/create-ite
 import { AddressFormComponent } from './pages/shopping/buying/address-form/address-form.component';
 import { ShopFilterNameComponent } from './components/shop/shop-filter-name/shop-filter-name.component';
 import { ShopFiltersPriceComponent } from './components/shop/filters/shop-filters-price/shop-filters-price.component';
+import { ShopFiltersBrandsComponent } from './components/shop/filters/shop-filters-brands/shop-filters-brands.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { ShopFiltersPriceComponent } from './components/shop/filters/shop-filter
     AddressFormComponent,
     ShopFilterNameComponent,
     ShopFiltersPriceComponent,
+    ShopFiltersBrandsComponent,
   ],
   imports: [
     BrowserModule,
