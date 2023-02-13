@@ -1,5 +1,14 @@
-<div class="main" *ngFor="let item of products">
-    <a [routerLink]="['/', item.brand, item.slug]">
-        <app-shop-item [item]="item" ></app-shop-item>
-    </a>
+<!-- <div class="main" *ngFor="let line of productByLine"> -->
+    <!-- <div class="line" *ngFor="let item of line">
+        <div [routerLink]="['/', item.brand, item.slug]" class="item">
+            <app-shop-item [item]="item" ></app-shop-item>
+        </div>
+    </div> -->
+<!-- </div> -->
+<div class="main">
+    <div class="item" *ngFor="let item of products">
+        <div [routerLink]="['/', item.brand, item.slug]" class="item">
+            <app-shop-item [item]="item" ></app-shop-item>
+        </div>
+    </div>
 </div>

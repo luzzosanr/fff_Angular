@@ -1,5 +1,7 @@
-<div>
-    <img [src]="environment.full_link_image(item.image)" alt="image" />
-    <h3>{{ item.name }}</h3>
-    <p>{{ item.price }}</p>
+<div class="main">
+    <div class="image">
+        <img [src]="environment.full_link_image(item.image)" alt="image" />
+    </div>
+    <div class="item_name">{{ item.name.toUpperCase() }}</div>
+    <div>${{ item.price }}</div>
 </div>

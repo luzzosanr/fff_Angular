@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ProductsService } from 'src/app/services/products.service';
 
 @Component({
@@ -7,6 +7,7 @@ import { ProductsService } from 'src/app/services/products.service';
   styleUrls: ['./shop.component.css']
 })
 export class ShopComponent implements OnInit {
+  @ViewChild('content_space', { static: true }) content_space: ElementRef<HTMLDivElement> | undefined;
   allProducts: any[] = [];
   renderedProducts: any[] = [];
   filters: any = {
@@ -21,6 +22,7 @@ export class ShopComponent implements OnInit {
   ) { }
   
   ngOnInit(): void {
+    if (this.content_space) this.content_space.nativeElement.style.height = `${window.innerHeight - 130}px`;
     this.productsService.getProducts().subscribe((data: any) => {
       this.allProducts = data.products;
       this.allProducts.forEach((product) => {

@@ -7,10 +7,17 @@
 
 app-shop-filter {
     flex: 2;
-    height: 100%;
+}
+
+.content_space {
+    flex: 11;
+    flex-direction: row;
+    display: flex;
+    justify-content: center;
+    overflow: scroll;
+    scrollbar-width: none;
 }
 
 app-shop-render {
-    flex: 11;
-    height: 100%;
+    width: 80%;
 }

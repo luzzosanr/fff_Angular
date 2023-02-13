@@ -1,3 +1,17 @@
-img {
-    width: 25%;
+img, .image {
+    height: 350px;
+    width: 100%;
+}
+
+.item_name {
+    font-size: 17px;
+}
+
+.main {
+    width: 100%;
+    width: 260px;
+}
+
+div + div {
+    margin-top: 4px;
 }
