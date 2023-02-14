@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProductsService } from 'src/app/services/products.service';  
 import { Router } from '@angular/router';
@@ -12,6 +12,7 @@ import { AccountService } from 'src/app/services/account.service';
   styleUrls: ['./product.component.css']
 })
 export class ProductComponent implements OnInit {
+  @ViewChild('main', { static: true }) main: ElementRef<HTMLElement> | undefined;
   brand: string = "";
   slug: string = "";
   product: any = {}
@@ -26,6 +27,7 @@ export class ProductComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    if (this.main) this.main.nativeElement.style.height = `${window.innerHeight - 190}px`
     this.route.params.subscribe((params: any) => {
       this.brand = params.brand;
       this.slug = params.slug;

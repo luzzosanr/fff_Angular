@@ -4,18 +4,18 @@ input[type="checkbox"] {
 
 .box {
     background-color: #655021;
-    border-radius: 4px;
-    height: 14px;
-    width: 14px;
-    margin-right: 5px;
+    border-radius: .2em;
+    height: .72em;
+    width: .72em;
+    margin-right: .3em;
 }
 
 .white_cross {
-    margin-top: -5px;
-    margin-left: 1px;
+    margin-top: -.25em;
+    margin-left: .06em;
     visibility: collapse;
     color: white;
-    font-size: 15px;
+    font-size: .776em;
   }
 
 label {
@@ -29,5 +29,5 @@ input[type="checkbox"]:checked ~ * .white_cross {
   }
 
 .content {
-    margin-left: 20px;
+    margin-left: 1em;
 }

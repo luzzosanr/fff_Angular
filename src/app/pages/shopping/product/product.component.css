@@ -1,0 +1,76 @@
+.main {
+    flex-direction: row;
+    display: flex;
+    overflow: scroll;
+    scrollbar-width: none;
+    margin-top: 4em;
+    width: 60%;
+    margin-left: 20%;
+}
+
+img {/* size is 9h by 7w */
+    height: 36em;
+    width: 28em;
+}
+
+.name {
+    font-size: 2em;
+    font-weight: bold;
+}
+
+.price {
+    padding: .8em;
+    padding-left: 0;
+    font-size: 1.75em;
+}
+
+.image {
+    flex: 3;
+    text-align: center;
+}
+
+.info {
+    flex: 5;
+    flex-direction: column;
+    display: flex;
+    margin-left: 3em;
+}
+
+.size {
+    flex-direction: row;
+    display: flex;
+}
+
+.select_size {
+    font-family: "Century Gothic";
+    font-size: 1.2em;
+}
+
+.sizes {
+    padding: 1.3em;
+    padding-left: 0;
+    flex-direction: row;
+    display: flex;
+    column-gap: 1em;
+}
+
+.size {
+    height: 2em;
+    width: 2em;
+    background-color: #D9D9D9;
+    border-radius: 1em;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5em;
+}
+
+button {
+    background-color: #005500;
+    font-weight: bold;
+    width: 18em;
+    height: 2.5em;
+    font-size: 1.2em;
+    color: white;
+    border-radius: .3em;
+    cursor: pointer;
+}

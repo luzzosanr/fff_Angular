@@ -1,4 +1,4 @@
-<app-shop-filter-name [title]="'brands'"></app-shop-filter-name>
+<app-shop-filter-name [title]="'brand'"></app-shop-filter-name>
 <div *ngFor="let brand of brands" class="content">
     <input type="checkbox" id=brand (change)="modifyBrand(brand, $event)" checked/>
     <label for=brand>

@@ -1,6 +1,8 @@
 <div class='main'>
     <app-shop-filter (filter)="UpdateFilter($event)" [brands]="brands" [extremePrices]="extremePrices" ></app-shop-filter>
-    <div #content_space class="content_space">
-        <app-shop-render [products]='renderedProducts'></app-shop-render>
+    <div class="scroller">
+        <div class="content_space">
+            <app-shop-render [products]='renderedProducts'></app-shop-render>
+        </div>
     </div>
 </div>

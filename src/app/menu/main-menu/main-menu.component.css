@@ -4,10 +4,14 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    margin-left: .5em;
+    margin-bottom: -.5em; /* To prevent to line hr white space */
 }
 
 .logo {
-    height: 60px;
+    height: 3.2em;
+    margin-top: .3em;
+    margin-bottom: .3em;
     flex: 1;
 }
 
@@ -20,9 +24,9 @@ app-account-menu {
 }
 
 .main {
-    margin-left: 15px;
-    margin-right: 20px;
-    margin-bottom: 20px;
+    margin-left: .5em;
+    margin-right: 1em;
+    margin-bottom: -.5em; /* To prevent to line hr white space */
 }
 
 hr {

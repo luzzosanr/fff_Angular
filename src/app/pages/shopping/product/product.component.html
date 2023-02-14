@@ -1,7 +1,26 @@
-<div>
+<!-- <div>
     <h1>{{product.name}}</h1>
     <img [src]="environment.full_link_image(product.image)" alt="image" />
-    <p>{{product.description}}</p>
-    <p>{{product.price/100}}$</p>
+    <div>{{product.description}}</div>
+    <div>{{product.price/100}}$</div>
     <button (click)="addToCart()">Add to cart</button>
+</div> -->
+
+<div #main class="main">
+    <div class="image">
+        <img [src]="environment.full_link_image(product.image)" alt="image" />
+    </div>
+    <div class="info">
+        <div class="name">{{product.name.toUpperCase()}}</div>
+        <div class="price">${{product.price/100}}</div>
+        <div class="select_size">Select size</div>
+        <div class="sizes">
+            <div class="size">xs</div>
+            <div class="size">s</div>
+            <div class="size">m</div>
+            <div class="size">l</div>
+            <div class="size">xl</div>
+        </div>
+        <button (click)="addToCart()">ADD TO CART</button>
+    </div>
 </div>

@@ -1,26 +1,32 @@
 h1 {
-    font-size: 25px;
-    margin-bottom: 15px;
+    font-size: 1.4em;
+    margin-bottom: .8em;
     font-weight: normal;
 }
 
 .main {
-    margin-left: 25px;
+    margin-left: 1em;
     flex-direction: row;
-    font-family: "Avenir", sans-serif;
     justify-content: space-between;
     display: flex;
-    height: 100%;
 }
 
 .content {
     flex: 1;
-    margin-right: 25px;
+    margin-right: 1.2em;
 }
 
 .vertical-line {
     border: none;
     background-color: black;
-    min-height: 100%;
     width: 1px;
+    margin-top: 2vh;
+    height: 86.5vh;
+}
+
+.filters {
+    margin-left: 1.2em;
+    row-gap: 2.5em;
+    display: flex;
+    flex-direction: column;
 }

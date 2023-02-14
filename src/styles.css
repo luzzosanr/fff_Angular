@@ -1,4 +1,7 @@
 /* All web site background color is EEEFF4 */
 body {
   background-color: #EEEFF4;
+  font-size: 1vw;
+  font-family: "avenir", sans-serif;
+  overflow: hidden;
 }

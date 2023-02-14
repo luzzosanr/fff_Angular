@@ -1,13 +1,15 @@
 .main {
-    margin-left: 25px;
+    margin-left: 1.3em;
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
+    margin-top: 4vh;
+    margin-bottom: 30vh;
+    row-gap: 1.5em;
   }
   
 .item {
     display: inline-block;
     width: 25%;
-    padding: 10px;
     box-sizing: border-box;
 }

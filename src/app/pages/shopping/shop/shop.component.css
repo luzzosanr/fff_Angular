@@ -1,6 +1,4 @@
 .main {
-    width: 100%;
-    height: 100%;
     display: flex;
     flex-direction: row;
 }
@@ -10,14 +8,16 @@ app-shop-filter {
 }
 
 .content_space {
-    flex: 11;
-    flex-direction: row;
-    display: flex;
-    justify-content: center;
+    height: 100vh;
+    width: 60vw;
     overflow: scroll;
     scrollbar-width: none;
 }
 
-app-shop-render {
-    width: 80%;
+.scroller {
+    overflow: hidden;
+    flex: 11;
+    flex-direction: row;
+    display: flex;
+    justify-content: center;
 }

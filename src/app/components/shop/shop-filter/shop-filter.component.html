@@ -3,8 +3,10 @@
         <h1>
             FILTER BY
         </h1>
-        <app-shop-filters-price (filter)="this.filter.emit($event)" [extremePrice]="extremePrices" ></app-shop-filters-price>
-        <app-shop-filters-brands (filter)="this.filter.emit($event)" [brands]="brands"></app-shop-filters-brands>
+        <div class="filters">
+            <app-shop-filters-price (filter)="this.filter.emit($event)" [extremePrice]="extremePrices" ></app-shop-filters-price>
+            <app-shop-filters-brands (filter)="this.filter.emit($event)" [brands]="brands"></app-shop-filters-brands>
+        </div>
     </div>
     <hr class="vertical-line">
 </div>
