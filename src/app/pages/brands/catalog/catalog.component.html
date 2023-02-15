@@ -1,4 +1,4 @@
-<div>
+<div class="main">
     <h1>Catalog</h1>
     <p>
         Available products :
@@ -13,9 +13,10 @@
     </div>
     <div *ngFor="let item of products">
         <div *ngIf="item.slug != modifying && available == item.is_available">
-            <h4>{{ item.name }}</h4>
-            Price :<h4>{{ item.price }}</h4>
-            Stock :<h4>{{ item.stock }}</h4>
+            <hr>
+            <h4>Name :{{ item.name }}</h4>
+            <h4>Price : ${{ item.price / 100 }}</h4>
+            <h4>Stock : {{ item.stock }}</h4>
             <form #data="ngForm" (ngSubmit)="update(data)">
                 <input type="hidden" name="slug" [(ngModel)]="item.slug" ngModel>
                 <input type="checkbox" name="is_unlimited" [(ngModel)]="item.is_unlimited" ngModel> Unlimited stock

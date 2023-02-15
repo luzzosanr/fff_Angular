@@ -1,0 +1,5 @@
+.main {
+    height: 95vh;
+    overflow: scroll;
+    scrollbar-width: none;
+}

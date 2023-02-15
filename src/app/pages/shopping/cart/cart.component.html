@@ -1,13 +1,13 @@
-<div>
-    <h1>Shopping Cart</h1>
+<div class="main">
+    <div class="title"><div>Shopping cart</div></div>
     <div *ngIf="cartItems.length > 0">
         <div *ngFor="let item of cartItems">
             <img [src]="environment.full_link_image(item.image)" class="img-fluid" />
-            <h4>{{ item.name }}</h4>
-            <p>{{ item.description }}</p>
-            <h4>{{ item.price / 100 | currency }}</h4>
+            <h4>name : {{ item.name }}</h4>
+            <p> description : {{ item.description }}</p>
+            <h4>Price : {{ item.price / 100 | currency }}</h4>
             <p>Quantity : {{ item.quantity }}</p>
-            <h4>{{ item.quantity * item.price / 100 | currency }}</h4>
+            <h4>Total price : {{ item.quantity * item.price / 100 | currency }}</h4>
             <div>
                 <input type="number" [(ngModel)]="item.quantity" (ngModelChange)="this.changeQuantity(item)" />
             </div>

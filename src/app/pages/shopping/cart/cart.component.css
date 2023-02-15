@@ -1,0 +1,23 @@
+.title {
+    width: 20em;
+    height: 3em;
+    font-size: 1.2em;
+    font-weight: bold;
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+}
+
+.title > div {
+    margin-left: 2em;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2em;
+    overflow: scroll;
+    scrollbar-width: none;
+    height: 85vh;
+}
