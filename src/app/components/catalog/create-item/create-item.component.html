@@ -1,7 +1,7 @@
 <div class="form">
     <input type="text" name="name" placeholder="Name" [(ngModel)]="product.name"/>
-    <input type="number" name="price" placeholder="Price" [(ngModel)]="product.price"/>
-    <input type="number" name="stock" placeholder="Stock" [(ngModel)]="product.stock"/>
+    Price : <input type="number" name="price" placeholder="Price" [(ngModel)]="product.price"/>
+    Stock : <input type="number" name="stock" placeholder="Stock" [(ngModel)]="product.stock"/>
     <textarea name="description" placeholder="Description" [(ngModel)]="product.description"> {{ product.description }} </textarea>
     <p><input type="checkbox" name="is_available" [(ngModel)]="product.is_available">Is available</p>
     <img [src]="environment.full_link_image(product.image_url)" alt="Image" />
