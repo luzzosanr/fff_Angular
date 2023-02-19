@@ -6,8 +6,8 @@ import { HttpHeaders } from '@angular/common/http';
 
 export const environment = {
   production: false,
-  API_URL: 'http://localhost:8080/api/',
-  API_URL_IMAGES: 'http://localhost:8080',
+  API_URL: 'http://164.132.57.11:8080/api/',
+  API_URL_IMAGES: 'http://164.132.57.11:8080',
   full_link_image(link: string) {
     return environment.API_URL_IMAGES + link;
   },
