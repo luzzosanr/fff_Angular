@@ -3,5 +3,5 @@
         <img [src]="environment.full_link_image(item.image)" alt="image" />
     </div>
     <div class="item_name">{{ item.name.toUpperCase() }}</div>
-    <div>${{ item.price }}</div>
+    <div>${{ item.price / 100}}</div>
 </div>
