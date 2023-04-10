@@ -3,3 +3,14 @@
     overflow: scroll;
     scrollbar-width: none;
 }
+
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+button {
+    height: 3vh;
+}

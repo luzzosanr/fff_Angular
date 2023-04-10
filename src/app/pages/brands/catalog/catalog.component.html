@@ -1,5 +1,8 @@
 <div class="main">
-    <h1>Catalog</h1>
+    <div class="header">
+        <h1>Catalog</h1>
+        <button (click)="logout()">logout</button>
+    </div>
     <p>
         Available products :
         <input type="checkbox" [(ngModel)]="available" />

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { BrandsService } from 'src/app/services/brands.service';
 import { Product } from 'src/environments/environment';
 import { AccountService } from 'src/app/services/account.service';
-import { FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-catalog',
@@ -16,7 +16,8 @@ export class CatalogComponent implements OnInit {
 
   constructor(
     private service: BrandsService,
-    private account: AccountService
+    private account: AccountService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -37,5 +38,15 @@ export class CatalogComponent implements OnInit {
 
   set availableProducts(available: boolean) {
     this.available = available;
+  }
+
+  
+  logout() {
+    /**
+     * Logout the user.
+     */
+
+    this.account.logout();
+    this.router.navigate(['/admin/login/']);
   }
 }
