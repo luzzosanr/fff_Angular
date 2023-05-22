@@ -30,16 +30,15 @@ export class RegisterComponent {
         this.fieldErrors[key] = null;
       }
 
-      console.log(res);
-      console.log(res);
-
       if (res.status == 'success' && res.type == "shopper") {
         this.router.navigate(['/']);
-      } else if (data.status == 'success' && res.type == "brand") {
+      } else if (res.status == 'success' && res.type == "brand") {
         this.router.navigate(['/admin']);
-      }
-
-      if (res.status == 'invalid') {
+      } else if (res.status == 'already logged' && res.type == "SHOPPER") {
+        this.router.navigate(['/account']);
+      } else if (res.status == 'already logged' && res.type == "BRAND") {
+        this.router.navigate(['/admin']);
+      } else if (res.status == 'invalid') {
         switch (res.field) {
           case 'email':
             this.fieldErrors.email = res.message;
